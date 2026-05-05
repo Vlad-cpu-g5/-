@@ -104,6 +104,9 @@ body {
     color: white;
     padding: 25px;
     border-radius: 12px;
+    
+    /* Додаємо цей рядок для відступу зверху */
+    margin-top: 40px; 
 }
 
 /* Підвал — темно-сірий */
