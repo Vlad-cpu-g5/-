@@ -1,0 +1,18 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f4; line-height: 1.6; }
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "menu menu menu"
+        "left main right"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 200px;
+    gap: 10px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
