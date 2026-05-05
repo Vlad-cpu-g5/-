@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerFuel - Спортивне Харчування</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <h1>PowerFuel</h1>
+    </header>
+     <nav class="menu">
+        <ul>
+            <li><a href="index.html">Головна</a></li>
+            <li><a href="about.html">Про нас</a></li>
+        </ul>
+    </nav>
+
+    <aside class="sidebar-left">
+        <h3>Топ Протеїнів</h3>
+        <img src="img/protein.jpg" alt="Whey Protein" class="modal-trigger">
+    </aside>
+
+    <main class="main-content">
+        <h2>Найкраще для твоїх тренувань</h2>
+        <p>Спортивне харчування допомагає досягти результатів швидше. У нас ви знайдете тільки сертифіковану продукцію: протеїни, креатин, вітаміни та амінокислоти.</p>
+        <div class="content-box">
+            <h3>Акція тижня</h3>
+            <p>Знижка -20% на всі передтренувальні комплекси!</p>
+        </div>
+    </main>
+
+    <aside class="sidebar-right">
+        <h3>Вітаміни</h3>
+        <img src="img/vitamins.jpg" alt="Daily Vitamins" class="modal-trigger">
+    </aside>
+
+    <footer class="footer">
+        <p>&copy; 2026 PowerFuel Store. Усі права захищені.</p>
+    </footer>
+</div>
+
+<!-- Модальне вікно для зображень -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+    
