@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 2. Знаходимо всі блоки з класом .modal-trigger (наші порожні div-и)
     const triggers = document.querySelectorAll(".modal-trigger");
-
+ 
     // 3. Додаємо подію кліку для кожного блоку
     triggers.forEach(function(element) {
         element.onclick = function() {
