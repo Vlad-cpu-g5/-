@@ -1,32 +1,45 @@
 /**
- * Скрипт для реалізації ефекту "Modal Image"
- * Проект: PowerFuel (екзаменаційне завдання, Варіант 9)
+ * Оновлений скрипт для ефекту "Modal Image"
+ * Працює з фоновими зображеннями (CSS background-image)
  */
 
-// Очікуємо повного завантаження DOM-структури
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Отримуємо елементи модального вікна з HTML
+    // 1. Отримуємо елементи модального вікна
     const modal = document.getElementById("myModal");
     const modalImg = document.getElementById("img01");
     const captionText = document.getElementById("caption");
     const closeBtn = document.getElementsByClassName("close")[0];
 
-    // 2. Знаходимо всі зображення товарів, які мають клас .modal-trigger
-    const images = document.querySelectorAll(".modal-trigger");
+    // 2. Знаходимо всі блоки з класом .modal-trigger (наші порожні div-и)
+    const triggers = document.querySelectorAll(".modal-trigger");
 
-    // 3. Додаємо подію кліку для кожного знайденого зображення
-    images.forEach(function(img) {
-        img.onclick = function() {
+    // 3. Додаємо подію кліку для кожного блоку
+    triggers.forEach(function(element) {
+        element.onclick = function() {
             // Показуємо модальне вікно
             modal.style.display = "block";
-            // Встановлюємо джерело картинки в модальному вікні таке ж, як у натиснутої
-            modalImg.src = this.src;
-            // Встановлюємо підпис із атрибута alt
-            captionText.innerHTML = this.alt;
             
             // Забороняємо прокрутку сторінки, поки вікно відкрите
             document.body.style.overflow = "hidden";
+
+            // ДІСТАЄМО ФОТО З CSS:
+            // Отримуємо значення background-image (воно виглядає як url("шлях_до_файлу"))
+            let bgImage = window.getComputedStyle(this).backgroundImage;
+            
+            // Видаляємо зайве (слово url, дужки та лапки), щоб залишилося тільки чисте посилання
+            let cleanUrl = bgImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+            
+            // Вставляємо чисте посилання у модальне вікно
+            modalImg.src = cleanUrl;
+
+            // ДІСТАЄМО ПІДПИС:
+            // Беремо текст із сусіднього елемента зверху (це наші <h3>Топ Протеїнів</h3> та <h3>Вітаміни</h3>)
+            if(this.previousElementSibling && this.previousElementSibling.tagName === 'H3') {
+                captionText.innerHTML = this.previousElementSibling.innerText;
+            } else {
+                captionText.innerHTML = ""; // Якщо заголовка немає, залишаємо порожнім
+            }
         }
     });
 
@@ -42,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
         closeBtn.onclick = closeModal;
     }
 
-    // Закриття при кліку на темне тло поза зображенням
+    // Закриття при кліку на темне тло поза фотографією
     window.onclick = function(event) {
         if (event.target === modal) {
             closeModal();
         }
     };
 
-    // Закриття при натисканні клавіші Escape (для зручності)
+    // Закриття вікна клавішею Escape
     document.addEventListener('keydown', function(event) {
         if (event.key === "Escape" && modal.style.display === "block") {
             closeModal();
