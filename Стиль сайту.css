@@ -120,13 +120,13 @@ body {
 }
 
 /* Шляхи до твоїх картинок у папці img */
+/* Індивідуальні шляхи до файлів */
 .protein-image {
-    /* Якщо назва файлу протеїну має дві крапки, допиши їх тут: protein..webp */
-    background-image: url('img/protein.webp'); 
+    background-image: url('img/protein.png'); /* Змінили webp на png */
 }
 
 .vitamins-image {
-    background-image: url('img/vitamins.webp'); 
+    background-image: url('img/vitamins.png'); /* Змінили webp на png */
 }
 
 /* Ефект плавного збільшення товару при наведенні мишки */
